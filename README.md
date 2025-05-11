@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+What is Hooks and useState of Hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+--In React, Hooks are functions that let you use state and other React features in functional components, which previously were only available in class components
 
-In the project directory, you can run:
+-- useState is a built-in Hook in React.
+-- use to manipulate the data
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-- when make you changes in the varialbe like adding anything and it should be visible to the component again we use stateManagement 
+--when you make changes dynamically in the state ,it make your component updates
+accordingly
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-- [count,setcount]=UseState()
 
-### `npm test`
+- where useState is immutable
+-- to chnage this we use setcount functin
+-- and count is the name of the state
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const [count,setcount]=useState(1)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  return (
+    < div className="App">
+      <div className='bg-black'>
+      <h1 className='text-white'>Count :{count}</h1>
+<button onClick={()=>setcount(count+1)} className='text-white' >
+  Increment 
+</button>
+<button onClick={()=>setcount(count-1)} className='mr-[100px] bg-red-600 px-5' >
+  decrement 
+</button> 
+    </div>
+    </div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+-- Using if else 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+not widely used 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+let[pshow,setpshow]=useState(false)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+if(pshow){
+template=
+<Card/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+}
+else{
+  template='';
+}
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+let Card=()=>{
+  return(
+    <h1> Welcome to WS</h1>
+  )
+}
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+--- terneray operator 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- using the logic inside the html tag
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+let[status,setstatus]=useState(false);
+  return(
+    <div>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+      <button onClick={()=>setstatus(!status)}>{(status )? 'Hide' : 'Show'}</button>
+    
+    {(status) ?  <p className='bg-red-600 m-10 p-4'>hello wrold</p> : '' }
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+</div>)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-- Module Style for a component 
+
+
+create a file Button.module.css
+
+.error{
+    color: red;
+}
+.warning{
+    color:yellow;
+}
+
+then import in app
+
+import button from './Button.module.css'
+
+<button className={button.error}>Error</button>
