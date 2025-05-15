@@ -51,10 +51,19 @@ function App() {
 //   );
 
 
+const [done,done1]=useState(1);
+
+
+
+
+
+
 
 let[status,setstatus]=useState(false);
   return(
     <div>
+      <h1>{done}:done</h1>
+      <button className='py-4 font-sans bg-black' onClick={()=>done1(done+1)}>click inrement</button>
       <Header/>
   <button className={button.error}>Error</button>
 
