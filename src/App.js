@@ -55,6 +55,7 @@ function App() {
 let[status,setstatus]=useState(false);
   return(
     <div>
+      <Header/>
   <button className={button.error}>Error</button>
 
       <button onClick={()=>setstatus(!status)}>{(status )? 'Hide' : 'Show'}</button>
